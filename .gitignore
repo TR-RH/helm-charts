@@ -3,6 +3,5 @@
 .vscode
 .project
 .settings
-*.tgz
 .DS_Store
 Chart.lock
