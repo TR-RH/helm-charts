@@ -18,6 +18,6 @@ entries:
     name: freescout
     type: application
     urls:
-    - https://github.com/TR-RH/helm-charts/blob/main/freescout-0.2.4.tgz
+    - https://github.com/TR-RH/helm-charts/freescout-0.2.4.tgz
     version: 0.2.4
 generated: "2025-12-15T14:00:15.7958579-08:00"
