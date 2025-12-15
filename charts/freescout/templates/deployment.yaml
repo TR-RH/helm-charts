@@ -91,10 +91,6 @@ spec:
             value: {{ .Values.externalDatabase.host | quote }}
           - name: DB_PORT
             value: {{ .Values.externalDatabase.port | quote }}
-          - name: DB_SSLMODE
-            value: required
-          - name: MYSQL_ATTR_SSL_VERIFY_SERVER_CERT
-            value: "false"
           - name: DB_NAME
             value: {{ .Values.externalDatabase.database | quote }}
           - name: DB_USER
@@ -107,6 +103,10 @@ spec:
           {{- end }}
           - name: DISPLAY_ERRORS
             value: {{ .Values.freescout.display_errors | quote }}
+          - name: MYSQL_SSL_CA
+            value: /etc/ssl/certs/ca-certificates.crt
+          - name: MYSQL_SSL_VERIFY
+            value: "false"
           - name: ENABLE_AUTO_UPDATE
             value: {{ .Values.freescout.enable_auto_update | quote }}
           - name: ENABLE_SSL_PROXY
