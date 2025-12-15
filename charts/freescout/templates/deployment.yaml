@@ -93,11 +93,11 @@ spec:
             value: {{ .Values.externalDatabase.port | quote }}
           - name: DB_SSLMODE
             value: required
-          - name: DB_DATABASE
+          - name: DB_NAME
             value: {{ .Values.externalDatabase.database | quote }}
-          - name: DB_USERNAME
+          - name: DB_USER
             value: {{ .Values.externalDatabase.username | quote }}
-          - name: DB_PASSWORD
+          - name: DB_PASS
             valueFrom:
               secretKeyRef:
                 name: {{ .Values.externalDatabase.existingSecret.secretName | default (printf "%s-%s" .Release.Name "db") }}
