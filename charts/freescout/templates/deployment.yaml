@@ -101,6 +101,8 @@ spec:
                 name: {{ .Values.externalDatabase.existingSecret.secretName | default (printf "%s-%s" .Release.Name "db") }}
                 key: {{ .Values.externalDatabase.existingSecret.passwordKey | default "db-password" }}
           {{- end }}
+          - name: DB_SSL
+            value: {{ .Values.freescout.database_ssl | quote }}
           - name: DISPLAY_ERRORS
             value: {{ .Values.freescout.display_errors | quote }}
           - name: ENABLE_AUTO_UPDATE
@@ -108,9 +110,7 @@ spec:
           - name: ENABLE_SSL_PROXY
             value: {{ .Values.freescout.enable_ssl_proxy | quote }}
           - name: SITE_URL
-            value: {{ .Values.freescout.site_url | quote }}  
-          - name: MYSQL_CLIENT_FLAGS
-            value: {{ .Values.freescout.ssl_client_flags | quote }}
+            value: {{ .Values.freescout.site_url | quote }}
           {{- if .Values.extraEnv }}
             {{- toYaml .Values.extraEnv | nindent 10 }}
           {{- end }}
