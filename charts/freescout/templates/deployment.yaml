@@ -115,6 +115,8 @@ spec:
             value: {{ .Values.freescout.enable_ssl_proxy | quote }}
           - name: SITE_URL
             value: {{ .Values.freescout.site_url | quote }}
+          - name: MYSQL_CLIENT_FLAGS
+            value: "--ssl-mode=REQUIRED"
           {{- if .Values.extraEnv }}
             {{- toYaml .Values.extraEnv | nindent 10 }}
           {{- end }}
