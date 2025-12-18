@@ -106,7 +106,7 @@ spec:
           - name: DISPLAY_ERRORS
             value: {{ .Values.freescout.display_errors | quote }}
           - name: ENABLE_AUTO_UPDATE
-            value: {{ .Values.freescout.enable_auto_update }}
+            value: {{ .Values.freescout.enable_auto_update | quote}}
           - name: ENABLE_SSL_PROXY
             value: {{ .Values.freescout.enable_ssl_proxy | quote }}
           - name: SITE_URL
